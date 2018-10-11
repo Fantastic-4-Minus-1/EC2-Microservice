@@ -1,8 +1,8 @@
 const db = require('./connection.js');
 
-const getQuery = 'SELECT stocks_auto.id, stocks_auto.company_name, stocks_auto.acronym, stocks_auto.analyst_percent, stocks_auto.owners, prices_table.date, prices_table.time, prices_table.price FROM stocks_auto inner join prices_table ON stocks_auto.id = prices_table.stock_id WHERE stocks_auto.acronym = $1;';
+const getQuery = 'SELECT stocks_auto.id, stocks_auto.company_name, stocks_auto.acronym, stocks_auto.analyst_percent, stocks_auto.owners, prices_table.date, prices_table.time, prices_table.price FROM stocks_auto inner join prices_table ON stocks_auto.id = prices_table.stock_id WHERE stocks_auto.id = $1;';
 
-const insertCompanyQuery = 'INSERT INTO  stocks_auto(company_name, acronym, analyst_percent, owners) VALUES($1,$2, $3, $4)';
+const insertCompanyQuery = 'INSERT INTO stocks_auto(company_name, acronym, analyst_percent, owners) VALUES($1,$2, $3, $4)';
 
 const insertPriceQuery = 'INSERT INTO  prices_table (stock_id, date, time, price) VALUES($1,$2, $3, $4)';
 
